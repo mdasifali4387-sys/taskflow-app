@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - Operations Control</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- 🌐 DYNAMIC PERSISTENT TOP HEADER BAR WITH ALGORITHMIC SEARCH BAR -->
+    <header class="navbar-wrapper">
+        
+            <span class="logo-emoji">🚀</span>
+            <h1 class="brand-title">TaskFlow <span class="welcome-text">| Welcome Workspace</span></h1>
+        </div>
+
+        <!-- 🔍 REAL-TIME ALGORITHMIC SEARCH ENGINE INPUT INTERFACE -->
+        <div class="navbar-search-container">
+            <span class="search-lens-icon">🔍</span>
+            <input type="text" id="global-task-search-input" placeholder="Type exact task title & press Enter to execute algorithms...">
+            <select id="search-algorithm-selector" title="Select backend search execution algorithm engine parameters">
+                <option value="binary">Binary Search (Sorted Index)</option>
+                <option value="linear">Linear Sweep (Baseline)</option>
+            </select>
+        </div>
+
+        <div class="auth-control-hub">
+            <span class="system-status-indicator">● Store Engine Active</span>
+        </div>
+    </header>
+
+    <!-- 🏗️ MAIN TWO-COLUMN CONTAINER LAYOUT -->
+    <div class="workspace-viewport-wrapper">
+        
+        <!-- 🛠️ LEFT-SIDE PERSISTENT VERTICAL NAVIGATION SIDEBAR MODULE -->
+        <nav class="navigation-sidebar-left">
+            <div class="nav-links-stack">
+                <button id="nav-home-btn" class="nav-control-btn active" data-target="home-view">
+                    <span class="btn-icon">🏠</span>
+                    <span class="btn-text">Home Dashboard</span>
+                </button>
+                
+                <button id="nav-project-btn" class="nav-control-btn" data-target="project-view">
+                    <span class="btn-icon">📁</span>
+                    <span class="btn-text">Add Projects & Tasks</span>
+                </button>
+
+                
+                <button id="nav-task-btn" class="nav-control-btn" data-target="task-view">
+                    <span class="btn-icon">📋</span>
+                    <span class="btn-text">My Operations Tasks</span>
+                </button>
+            </div>
+
+                        <!-- 👤 DYNAMIC USER SESSION CONTROL CENTER WITH CLICK DROP DRAWER -->
+            <div id="sidebar-auth-wrapper" class="sidebar-profile-zone">
+                
+                <!-- PHASE A: JAB BANDA LOGGED OUT HAI (SHOW INITIAL SELECTION BUTTON) -->
+                <button id="sidebar-login-action-btn" class="nav-control-btn active">
+                    <span class="login-btn-icon">👤</span>
+                    <span class="login-btn-text">Click to Login Session</span>
+                </button>
+
+                <!-- PHASE B: JAB BANDA LOG IN HO GAYA (CLICKABLE USER NAVIGATION COMPONENT) -->
+                <div id="active-user-profile-card" class="session-profile-footer content-hidden">
+                    <div class="profile-avatar-circle">
+                        <span id="profile-avatar-letter" class="avatar-letter">--</span>
+                    </div>
+                    <div class="profile-session-metadata">
+                        <h4 id="logged-user-name" class="profile-title-text">Loading...</h4>
+                        <span id="logged-user-role" class="profile-subtitle-text">--</span>
+                    </div>
+                    <span class="drawer-toggle-arrow">▼</span>
+                </div>
+
+                                <!-- 🔥 DYNAMIC DROPDOWN: INTEGRATED INLINE EDIT & LIFECYCLE DRAWER -->
+                <div id="profile-details-drop-drawer" class="profile-dropdown-container" style="display: none;">
+                    <h4 class="dropdown-section-heading">Active Operator Profile</h4>
+                    
+                    <!-- 👁️ VIEW MODE DISPLAY PANEL (DEFAULT VISIBLE) -->
+                    <div id="drawer-view-mode-panel">
+                        <div class="dropdown-metadata-block">
+                            <span id="drawer-user-name" class="dropdown-user-title">--</span>
+                            <span id="drawer-user-subtitle" class="dropdown-user-subtitle">--</span>
+                            <span id="drawer-user-email" class="dropdown-user-email-badge">--</span>
+                        </div>
+                        
+                        <div class="dropdown-action-row inline-action-gap">
+                            <button id="sidebar-inline-edit-trigger-btn" class="btn-action-logout btn-edit-gray">
+                                ✏️ Edit
+                            </button>
+                            <button id="sidebar-inline-logout-btn" class="btn-action-logout">
+                                🚪 Sign Out
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- ✏️ EDIT MODE INPUT FORM PANEL (DEFAULT HIDDEN VIA CLASS CONTROL) -->
+                    <form id="drawer-edit-mode-form" class="content-hidden edit-mode-flex">
+                        <div class="input-element-group input-compact-margin">
+                            <label class="compact-form-label">Update Name *</label>
+                            <input type="text" id="edit-user-name" class="compact-form-input" required>
+                        </div>
+                        <div class="input-element-group input-form-bottom-gap">
+                            <label class="compact-form-label">Update Operational Role *</label>
+                            <select id="edit-user-role" class="compact-form-input">
+                                <option value="Pod Lead">Pod Lead</option>
+                                <option value="Core Engineer">Core Engineer</option>
+                                <option value="Darkstore Operations Manager">Darkstore Operations Manager</option>
+                            </select>
+                        </div>
+                        <div class="dropdown-action-row inline-action-gap">
+                            <button type="button" id="btn-edit-cancel" class="btn-action-logout btn-edit-gray btn-padding-compact">Cancel</button>
+                            <button type="submit" class="btn-action-logout btn-save-green btn-padding-compact">💾 Save</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </nav>
+
+        <!-- 🎯 RIGHT MAIN VIEWPORT CONTAINER -->
+        <main id="dynamic-content-area" class="content-viewport-right">
+            
+                <!-- 🏠 VIEW 1: HOME WORKSPACE SCREEN (CORRECTED NAME) -->
+            <div id="home-view" class="view-panel active">
+                <div class="view-header">
+                    <h2>🏠 All Operational Projects Matrix</h2>
+                    <p>Displaying every active dark-store engineering project currently initialized inside your pod database.</p>
+                </div>
+                
+                <!-- Projects Grid Output System -->
+                <div id="projects-grid-container" class="projects-card-grid">
+                    <!-- JavaScript maps out live project boxes here cleanly -->
+                </div>
+            </div>
+
+            
+                 <!-- 📁 VIEW 2: ADD PROJECTS & TASKS TAB (100% COMPLETE & FIXED) -->
+            <div id="project-view" class="view-panel">
+                <div class="view-header">
+                    <h2>📁 Add & Configure Workspace Operations</h2>
+                    <p>Initialize a new project domain or dispatch standard task configurations directly into the database records.</p>
+                </div>
+
+                <div class="split-forms-container">
+                    <!-- Form Block A: Create Project (With Manual Text Owner Name Input) -->
+                    <div class="form-card-panel">
+                        <h3>Create New Project</h3>
+                        <form id="project-creation-form">
+                            <div class="input-element-group">
+                                <label for="project-name">Project Title *</label>
+                                <input type="text" id="project-name" placeholder="e.g. Inventory Tracking Module" required>
+                            </div>
+
+                            <div class="input-element-group">
+                                <label for="project-owner-input">Project Assignee / Owner Name *</label>
+                                <input type="text" id="project-owner-input" placeholder="Type name e.g. Rohan Kumar" required>
+                            </div>
+
+                            <div class="input-element-group">
+                                <label for="project-desc">Description</label>
+                                <input type="text" id="project-desc" placeholder="Operational bounds description text...">
+                            </div>
+
+                            <button type="submit" class="submit-action-btn">Initialize Project</button>
+                        </form>
+                    </div>
+
+                    <!-- Form Block B: Add Tasks Natively (Wapas complete kar diya hai!) -->
+                    <div class="form-card-panel">
+                        <h3>Add Task Configuration</h3>
+                        <form id="task-creation-form" novalidate>
+                            <div class="input-element-group">
+                                <label for="task-project-select">Target Project *</label>
+                                <select id="task-project-select">
+                                    <!-- Dynamic selection updates via JS mapping -->
+                                </select>
+                            </div>
+                            <div class="input-element-group">
+                                <label for="task-title">Task Title *</label>
+                                <input type="text" id="task-title" placeholder="e.g. Debug Scanner Firmware">
+                                <span id="title-error" class="error-msg"></span>
+                            </div>
+                            <div class="input-element-group">
+                                <label for="task-due-date">Due Date / Hint</label>
+                                <input type="text" id="task-due-date" placeholder="tomorrow, next friday, 15 Aug">
+                            </div>
+                            <div class="input-element-group">
+                                <label for="task-priority">Priority Level</label>
+                                <select id="task-priority">
+                                    <option value="low">Low</option>
+                                    <option value="medium" selected>Medium</option>
+                                    <option value="high">High</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="submit-action-btn yellow-accent">Persist Task Record</button>
+                        </form>
+                    </div>
+                </div>
+
+                                <!-- 🚀 SECTION 3: AI QUICK-ADD INTELLIGENT WORKSPACE INTERFACE -->
+                <div class="form-card-panel ai-workspace-dashed-border">
+                    <h3 class="ai-console-main-heading">🤖 AI Smart Quick-Add Operations Parser</h3>
+                    <p class="ai-console-subtitle-text">Type operational bounds statements using plain conversational English. Our local rule-engine algorithm strips variables instantly into database records.</p>
+                    
+                    <form id="ai-quick-add-form">
+                        <!-- 📦 DYNAMIC PROJECT BOUNDING SELECTION DROP-DOWN -->
+                        <div class="input-element-group ai-input-bottom-gap">
+                            <label for="ai-project-target-selector" class="ai-selector-label-text">Select Target Project Domain *</label>
+                            <select id="ai-project-target-selector" class="compact-form-input">
+                                <!-- Javascript loads dynamic active project options matrix array by array -->
+                            </select>
+                        </div>
+
+                        <div class="input-element-group">
+                            <label for="ai-raw-prompt-input">Conversational Task Statement *</label>
+                            <input type="text" id="ai-raw-prompt-input" placeholder="e.g. build a barcode scanning engine by next Friday with high priority" required>
+                        </div>
+                        <button type="submit" class="submit-action-btn yellow-accent ai-btn-padding-adjust">Execute AI Ingestion Engine</button>
+                    </form>
+                </div>
+
+
+            </div>
+
+            
+            <!-- 📋 VIEW 3: PERSONAL TASK WORKSPACE QUEUE -->
+            <div id="task-view" class="view-panel">
+                <div class="view-header">
+                    <h2>📋 My Operations Tasks Queue</h2>
+                    <p>Manage allocated operations rows. Click status badge parameter toggles to record state changes.</p>
+                </div>
+                <div id="task-list-container" class="task-patti-stack">
+                    <!-- JavaScript appends thin rows here dynamically -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+        <!-- 🔍 TASK SEARCH DETAILED RESULTS & LIVE CRUD MODAL CONSOLE -->
+    <div id="task-details-modal" class="modal-overlay-backdrop">
+        <div class="modal-content-glass-card">
+            <div class="modal-header-row" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; border-bottom: 1px solid var(--border-slate); padding-bottom: 10px;">
+                <h3 id="modal-task-title" class="modal-main-title" style="margin: 0; color: var(--blinkit-yellow);">🔍 Task Inspection Details</h3>
+                <button id="modal-close-trigger-btn" class="close-panel-btn" style="background: transparent; border: none; color: var(--text-subtle); font-size: 18px; cursor: pointer;">✕</button>
+            </div>
+            
+            <!-- 👁️ READ-ONLY VIEW MODE (DEFAULT CONTAINER) -->
+            <div id="task-modal-view-panel">
+                <div class="modal-detail-row" style="margin-bottom: 14px;">
+                    <span class="box-stat-label" style="font-size: 11px; color: var(--text-subtle); display: block; text-transform: uppercase;">Unique Task Key Registry ID</span>
+                    <strong id="modal-task-id" class="pure-white font-mono" style="font-size: 14px; color: var(--text-pure); font-family: monospace;">--</strong>
+                </div>
+                
+                <div class="metrics-dashboard-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 14px;">
+                    <div class="metric-stats-box" style="background: #1e1e20; padding: 10px; border-radius: 8px; border: 1px solid var(--border-slate); text-align: center;">
+                        <span class="box-stat-label" style="font-size: 11px; color: var(--text-subtle); display: block; text-transform: uppercase;">Task Status</span>
+                        <strong id="modal-task-status" class="box-stat-number blinkit-yellow uppercase-text" style="font-size: 16px; color: var(--blinkit-yellow); text-transform: uppercase;">--</strong>
+                    </div>
+                    <div class="metric-stats-box" style="background: #1e1e20; padding: 10px; border-radius: 8px; border: 1px solid var(--border-slate); text-align: center;">
+                        <span class="box-stat-label" style="font-size: 11px; color: var(--text-subtle); display: block; text-transform: uppercase;">Priority Tag</span>
+                        <strong id="modal-task-priority" class="box-stat-number high-red uppercase-text" style="font-size: 16px; color: var(--high-priority); text-transform: uppercase;">--</strong>
+                    </div>
+                </div>
+
+                <div class="modal-detail-row" style="margin-bottom: 14px;">
+                    <span class="box-stat-label" style="font-size: 11px; color: var(--text-subtle); display: block; text-transform: uppercase;">Target Completion Timeline</span>
+                    <p id="modal-task-due" class="scope-description-text font-weight-bold" style="font-size: 13px; color: var(--blinkit-yellow); font-weight: 600; margin: 4px 0 0 0;">--</p>
+                </div>
+
+                <div class="modal-detail-row" style="margin-bottom: 14px;">
+                    <span class="box-stat-label" style="font-size: 11px; color: var(--text-subtle); display: block; text-transform: uppercase;">Operational Scope Description</span>
+                    <p id="modal-task-desc" class="scope-description-text" style="font-size: 13px; color: var(--text-pure); line-height: 1.5; background: #1e1e20; padding: 10px; border-radius: 8px; border: 1px solid var(--border-slate); margin: 4px 0 0 0;">--</p>
+                </div>
+            </div>
+
+            <!-- ✏️ INTERACTIVE EDIT FORM MODE (DEFAULT HIDDEN VIA CSS CLASSES) -->
+            <form id="task-modal-edit-form" class="edit-mode-flex" style="display: none; flex-direction: column; gap: 10px;">
+                <div class="input-element-group">
+                    <label class="compact-form-label" style="font-size: 11px; color: var(--text-subtle); display: block; margin-bottom: 2px;">Update Task Title *</label>
+                    <input type="text" id="update-task-title-input" class="compact-form-input" style="width: 100%; background: #202022; border: 1px solid var(--border-slate); border-radius: 6px; color: var(--text-pure); padding: 8px; font-size: 13px; box-sizing: border-box;" required>
+                </div>
+                
+                <div class="input-element-group">
+                    <label class="compact-form-label" style="font-size: 11px; color: var(--text-subtle); display: block; margin-bottom: 2px;">Update Scope Description</label>
+                    <textarea id="update-task-desc-input" class="compact-form-input text-area-fixed-height" style="width: 100%; background: #202022; border: 1px solid var(--border-slate); border-radius: 6px; color: var(--text-pure); padding: 8px; font-size: 13px; box-sizing: border-box; height: 60px; resize: none; font-family: inherit;"></textarea>
+                </div>
+
+                <div class="metrics-dashboard-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+                    <div class="input-element-group">
+                        <label class="compact-form-label" style="font-size: 11px; color: var(--text-subtle); display: block; margin-bottom: 2px;">Update Priority Tags *</label>
+                        <select id="update-task-priority-input" class="compact-form-input" style="width: 100%; background: #202022; border: 1px solid var(--border-slate); border-radius: 6px; color: var(--text-pure); padding: 8px; font-size: 13px; box-sizing: border-box;">
+                            <option value="low">Low Priority</option>
+                            <option value="medium">Medium Priority</option>
+                            <option value="high">High Priority</option>
+                        </select>
+                    </div>
+                    <div class="input-element-group">
+                        <label class="compact-form-label" style="font-size: 11px; color: var(--text-subtle); display: block; margin-bottom: 2px;">Update Deadline Hint</label>
+                        <input type="text" id="update-task-due-input" class="compact-form-input" style="width: 100%; background: #202022; border: 1px solid var(--border-slate); border-radius: 6px; color: var(--text-pure); padding: 8px; font-size: 13px; box-sizing: border-box;" placeholder="e.g. tomorrow morning">
+                    </div>
+                </div>
+
+                <div class="dropdown-action-row inline-action-gap" style="display: flex; gap: 8px; justify-content: flex-end; width: 100%; margin-top: 10px; border-top: 1px solid var(--border-slate); padding-top: 12px;">
+                    <button type="button" id="btn-task-edit-cancel" class="btn-action-logout btn-edit-gray btn-padding-compact" style="background: #333; border: 1px solid var(--border-slate); color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer;">Cancel</button>
+                    <button type="submit" class="btn-action-logout btn-save-green btn-padding-compact" style="background: #22c55e; border: none; color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer;">💾 Save Parameters</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+        <!-- 🪟 REAL INTERACTIVE LOGIN MODAL FORM OVERLAY -->
+    <div id="user-login-modal" class="modal-overlay-backdrop">
+        <div class="modal-card-box">
+            <div class="modal-header-row">
+                <h3>👤 Initialize Engineer Pod Session</h3>
+                <button id="modal-login-close-btn" class="close-panel-btn">✕</button>
+            </div>
+            <form id="real-auth-submission-form">
+                <div class="input-element-group">
+                    <label for="login-user-name">Full Name *</label>
+                    <input type="text" id="login-user-name" placeholder="e.g. Rahul Kumar" required>
+                </div>
+                <div class="input-element-group">
+                    <label for="login-user-email">Blinkit Email Address *</label>
+                    <input type="email" id="login-user-email" placeholder="e.g. rahul@blinkit.com" required>
+                </div>
+                <div class="input-element-group">
+                    <label for="login-user-role">Operations Role Pod *</label>
+                    <select id="login-user-role">
+                        <option value="Pod Lead" selected>Pod Lead</option>
+                        <option value="Core Engineer">Core Engineer</option>
+                        <option value="Darkstore Operations Manager">Darkstore Operations Manager</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-action-btn yellow-accent">Authorize Operational Token</button>
+            </form>
+        </div>
+    </div>
+    <!-- 📊 PROJECT ANALYTICAL METRICS OVERLAY MODAL -->
+<div id="project-details-modal" class="modal-overlay-backdrop">
+    <div class="modal-content-glass-card">
+        <h3 id="modal-proj-title" class="modal-main-title">📦 Project Operations Details</h3>
+        <p id="modal-proj-owner" class="modal-subtitle-text"></p>
+        
+        <div class="metrics-dashboard-grid">
+            <div class="metric-stats-box">
+                <span class="box-stat-label">Total Tasks</span>
+                <strong id="modal-proj-total" class="box-stat-number pure-white">0</strong>
+            </div>
+            <div class="metric-stats-box">
+                <span class="box-stat-label">Todo State</span>
+                <strong id="modal-proj-todo" class="box-stat-number high-red">0</strong>
+            </div>
+            <div class="metric-stats-box">
+                <span class="box-stat-label">In Progress</span>
+                <strong id="modal-proj-progress" class="box-stat-number blinkit-yellow">0</strong>
+            </div>
+            <div class="metric-stats-box">
+                <span class="box-stat-label">Completed Work</span>
+                <strong id="modal-proj-done" class="box-stat-number active-green">0</strong>
+            </div>
+        </div>
+
+        <div class="modal-detail-row project-scope-row">
+            <span class="box-stat-label scope-heading">Scope Description</span>
+            <p id="modal-proj-desc" class="scope-description-text"></p>
+        </div>
+
+        <button id="modal-proj-close-btn" class="submit-action-btn close-trigger dismiss-view-btn">Dismiss View</button>
+    </div>
+</div>
+
+
+    <script src="app.js"></script>
+</body>
+</html>
